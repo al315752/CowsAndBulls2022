@@ -4,8 +4,6 @@ class Model() {
     var numberOfColors: Int = 6
     var numberOfHoles: Int = 4
     var repetitionsAllowed: Boolean = false
-    val colorsOK: Boolean = false
-    val holesOK: Boolean = false
 
     constructor(info: GameInfo) : this() {
         numberOfColors = info.numberOfColors

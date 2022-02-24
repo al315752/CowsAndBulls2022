@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CowsAndBulls2022">
+        <activity android:name=".app.Game.GameActivity"></activity>
         <activity android:name=".app.SettingsView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

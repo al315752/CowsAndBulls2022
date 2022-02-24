@@ -1,14 +1,15 @@
 package com.example.cowsandbulls2022.app
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ToggleButton
 import androidx.core.widget.addTextChangedListener
 import com.example.cowsandbulls2022.R
+import com.example.cowsandbulls2022.app.Game.GameActivity as GameActivity1
 
 class SettingsView : AppCompatActivity(), SettingsInterface {
     lateinit var editTextColors: EditText
@@ -38,6 +39,9 @@ class SettingsView : AppCompatActivity(), SettingsInterface {
         toggleRepetitions.setOnClickListener{
             presenter.checkErrors()
         }
+        buttonPlay.setOnClickListener {
+            presenter.startGame()
+        }
     }
 
     override fun showGameInfo(info: GameInfo) {
@@ -61,7 +65,9 @@ class SettingsView : AppCompatActivity(), SettingsInterface {
     }
 
     override fun changeToGame(info: GameInfo) {
-        TODO("Recibe un objeto de la clase GameInfo y lo usa para construir un Intent y empezar la GameActivity")
+        val intent = Intent(this, GameActivity1::class.java).apply {
+            putExtra("GAME_INFO", info)
+        }
+        startActivity(intent)
     }
-
 }
