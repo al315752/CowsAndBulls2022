@@ -47,10 +47,13 @@ class GameActivity : AppCompatActivity(), GameInterface {
     }
 
     override fun displayGuesses(guessList: MutableList<Guess>) {
-        recyclerViewGuesses.also{
-            it.adapter = GuessAdapter(guessList)
-            it.layoutManager = LinearLayoutManager(this)
-        }
+        if (recyclerViewGuesses.adapter == null) {
+            recyclerViewGuesses.also {
+                it.adapter = GuessAdapter(guessList)
+                it.layoutManager = LinearLayoutManager(this)
+            }
+        } else
+            recyclerViewGuesses.adapter?.notifyDataSetChanged()
     }
 
     override fun displayMessage(message: String) {
